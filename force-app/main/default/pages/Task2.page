@@ -1,0 +1,12 @@
+<apex:page controller="contactCustomController" >
+<apex:pageBlock >
+    <apex:form >
+        <apex:pageBlockSection >       
+            First Name <apex:inputText value="{!firstName}" />
+            Last Name <apex:inputText value="{!lastName}" />
+            Phone <apex:inputText value="{!phone}" />
+            <apex:commandButton value="save" action="{!save}" />
+        </apex:pageBlockSection> 
+    </apex:form>        
+</apex:pageBlock>
+</apex:page>

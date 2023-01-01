@@ -1,0 +1,69 @@
+<apex:page controller="SecondContactList">
+	<apex:form>
+		<apex:inputText value="{!searchKey}"/>
+        <apex:commandButton value="Search records" action="{!search}"/>
+		<!-- <apex:commandButton value="Search records" action="{!ctlist}"/> -->
+		<!-- <apex:commandButton value="Clear records" action="{!ClearRecord}"/> -->
+        <apex:pageBlock title="Contact List">
+            <apex:pageBlockTable value="{!results}" var="C">
+                <apex:column value="{!C.Lastname}"/>
+                <apex:column value="{!C.Phone}"/>
+            </apex:pageBlockTable>
+			<apex:pageBlockButtons location="bottom">	
+				<apex:commandButton value="First" action="{!FirstPage}" />
+				<apex:commandButton value="Previous" action="{!PreviousPage}" disabled="{!Prev}" />
+				<apex:commandButton value="Next" action="{!NextPage}" />
+				<apex:commandButton value="Last" action="{!LastPage}" />
+			</apex:pageBlockButtons>
+			<apex:pageBlockTable value="{!SecondContactList}" var="co">
+				<apex:outputLabel value="Total number of contacts: "/>
+				<apex:outputText value="{!co.Contact}"/>
+			</apex:pageBlockTable>
+        </apex:pageBlock>
+	</apex:form>	
+</apex:page>
+
+<!-- <apex:pageBlock> -->
+        <!-- <apex:pageBlockButtons location="bottom">
+			<apex:commandButton value="First" action="{!FirstPage}" />
+			<apex:commandButton value="Previous" action="{!PreviousPage}" disabled="{!Prev}" />
+			<apex:commandButton value="Next" action="{!NextPage}" />
+			<apex:commandButton value="Last" action="{!LastPage}" />
+		</apex:pageBlockButtons> -->
+        <!-- <apex:pageBlockTable value="{!conrecords}" var="c">
+            <apex:column value="{!c.Lastname}"/>
+			<apex:column value="{!c.Phone}"/>
+            <apex:column value="{!c.Email}"/>
+            <apex:commandButton value="Goto DetailPage" action="{!gotoContactDetailPage}" reRender="none">
+					<apex:param name="contactid" value="{!contact.Id}" assignTo="{!contactId}"/>
+			</apex:commandButton>
+        </apex:pageBlockTable> -->
+		<!-- <apex:pageBlockTable value="{!count}" var="co">
+			<apex:outputLabel value="Total number of contacts: "/>
+			<apex:outputText value="{!co.Contact}"/>
+		</apex:pageBlockTable> -->
+    <!-- </apex:pageBlock> -->
+
+
+<!-- <apex:page controller="ContactList">
+	<apex:form>
+		<apex:pageBlock>
+			<apex:pageBlockTable value="{!getContact}" var="c">
+				<apex:column value="{!c.LastName}"/>
+				<apex:column headValue="First Name" value="{!c.FirstName}"/>
+				<apex:commandButton value="Goto DetailPage" action="{!gotoContactDetailPage}" reRender="none">
+					<apex:param name="contactid" value="{!contact.Id}" assignTo="{!contactId}"/>
+				</apex:commandButton>
+			</apex:pageBlockTable>
+		</apex:pageBlock>
+	</apex:form>
+</apex:page> -->
+
+<!-- <apex:page controller="ContactList">
+	<apex:repeat value ="{!getContact}" var ="c" >
+		<apex:outputLink value="{c.ID}">
+			<apex:outputText value="{!c.LastName}"></apex:outputText>
+		</apex:outputLink>
+	</apex:repeat>
+</apex:page> -->
+

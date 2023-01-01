@@ -1,0 +1,84 @@
+<aura:component controller="newDragAndDrop" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction"
+access="global">
+<!-- <aura:handler name="init" value="{!this}" action="{!doInit}"/> -->
+<aura:attribute name="contact1" type="List"/>
+<aura:attribute name="contact2" type="List"/>
+<aura:attribute name="con1Name" type="integer"/>
+<aura:attribute name="con2Name" type="integer"/>
+<aura:attribute name="AccountName11" type="string"/>
+<aura:attribute name="AccountName12" type="string"/>
+<aura:attribute name="spinner" type="Boolean" default="false"/>
+
+<aura:if isTrue="{!v.spinner}">
+    <div aura:id="spinnerId" class="slds-spinner_container">
+        <div class="slds-spinner--brand  slds-spinner slds-spinner--large slds-is-relative" role="alert">
+            <span class="slds-assistive-text">Loading</span>
+            <div class="slds-spinner__dot-a"></div>
+            <div class="slds-spinner__dot-b"></div>
+            <p style="transform: translate(-32%, -50%) rotate(-90deg); width:500px; text-align: center;"><b>Please wait while Loading...</b></p>
+        </div>
+    </div>
+</aura:if>
+
+
+<!-- <aura:attribute name="con1Name" type="text"/> -->
+    <lightning:card>
+        <lightning:layout>
+            <lightning:layoutItem size="6" padding="around-small">
+                <div class="slds-box" ondragover="{!c.dragover}" ondrop="{!c.dropcon1}">
+                    <div class="slds-box">
+                        <h1 style="font-size:24px; text-align:center; font-style:cursive;">Account And Related Contacts</h1>
+                    </div>
+                    <lightning:input  type="text" name="searchKey1" aura:id="searchKey1" onchange="{!c.searchKeyChange1}" placeholder="Search Account"/>
+                    
+                    <div class="slds-box">
+                        <lightning:icon iconName="standard:account" alternativeText="Account" title="Account"/>
+                        <p style="margin-left:40px; margin-top:-25px; font-size:15px;"><b>Account Name : {!v.AccountName11}</b></p>
+                    </div>
+                    <!-- <aura:iteration items="{!v.AccountName11}}" var="acc"> -->
+                    <p><b>Number Of Contact : {!v.con1Name}</b></p>
+                        <!-- <div class="slds-box"> -->
+                            
+                            <!-- <b style="margin-left: 6px; font-size: 15px">{!acc.Name}</b> -->
+                            <aura:iteration items="{!v.contact1}" var="item1">
+                                <div class="slds-box" style="margin-top: 4px;" id="{!item1.Id}" ondragstart="{!c.dragstart}" draggable="true">
+                                    <lightning:icon iconName="standard:contact" alternativeText="contact" title="Contact"/>
+                                    <b style="margin-left: 3px;">Last Name : {!item1.LastName}</b><br/>
+                                    <!-- <b style="margin-left: 3px;">Last Name : {!con.LastName}</b> -->
+                                </div>
+                            </aura:iteration>
+                        <!-- </div> -->
+                    <!-- </aura:iteration> -->
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                <div class="slds-box" ondragover="{!c.dragover}" ondrop="{!c.dropcon2}">
+                    <div class="slds-box">
+                        <h1 style="font-size:24px; text-align:center">Account And Related Contacts</h1>
+                    </div>    
+                    <lightning:input type="text" name="searchKey2" aura:id="searchKey2" onchange="{!c.searchKeyChange2}" placeholder="Search Account" />
+                    <!-- <lightning:icon iconName="standard:account" alternativeText="Account" title="Account"/> -->
+                    <!-- <p>Account Name : {!v.AccountName12}</p> -->
+                    <div class="slds-box">
+                        <lightning:icon iconName="standard:account" alternativeText="Account" title="Account"/>
+                        <p style="margin-left:40px; margin-top:-25px; font-size:15px;"><b>Account Name : {!v.AccountName12} </b></p>
+                    </div>
+                    <!-- <aura:iteration items="{!accounts1}" var="acc1"> -->
+                    <p><b> Number Of Contact : {!v.con2Name}</b></p>
+                        <!-- <div class="slds-box" > -->
+                            
+                            <!-- <b style="margin-left: 6px; font-size: 15px">{!acc1.Name}</b> -->
+                            <aura:iteration items="{!v.contact2}" var="item2">
+                                <div class="slds-box" style="margin-top: 4px;" id="{!item2.Id}" ondragstart="{!c.dragstart}" draggable="true">
+                                    <lightning:icon iconName="standard:contact" alternativeText="contact" title="Contact"/>
+                                    <b style="margin-left: 3px;">Last Name : {!item2.LastName}</b><br/>
+                                    <!-- <b style="margin-left: 3px;">Last Name : {!con.LastName}</b> -->
+                                </div>
+                            </aura:iteration>
+                        <!-- </div> -->
+                    <!-- </aura:iteration> -->
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>

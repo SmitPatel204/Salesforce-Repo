@@ -1,0 +1,12 @@
+.THIS .row{
+    /* width: 100vw; */
+   
+    /* flex-wrap: wrap; */
+}
+.THIS .cols{
+    height: 400px;
+    width: 400px;
+    margin: 5px 5px 5px 5px;
+    background-color: rgb(183, 194, 202);
+    display: inline-block;
+}

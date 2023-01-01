@@ -1,0 +1,49 @@
+.THIS .cmn_error_msg{font-size:13px; color: rgb(194, 57, 52);}
+.THIS .cmn_message{font-size:13px; color: green; }
+.THIS .cmn_mandatory_indicator { color: rgb(194, 57, 52); }
+.THIS html body.sfdcBody{padding:0!important}
+.THIS .slds-config-form{max-width:700px}
+.THIS .slds-config-form .slds-form-element{margin-bottom:0.9rem;align-items:left}
+.THIS .slds-config-form .slds-form-element__label{font-weight:700; min-width:300px; text-align:right;color:#16325c}
+.THIS .slds-config-form .slds-form-element__control{width:70%}
+.THIS .config-heading{margin-top:.75rem}
+.THIS .config-table-details .slds-table tr label{font-weight:700;color:#333}
+.THIS .config-setup-icon{background:#f2cf5b;padding:5px}
+.THIS .config-setup-icon .slds-button__icon{fill:#fff}
+.THIS .adapetr-config-sec{background:#fff}  
+.THIS .slds-page-header.adapetr-header{border-radius:.25rem .25rem 0 0;}   
+.THIS .adapetr-config-sec{padding:1rem;}
+.THIS .adapetr-config-sec h3{padding-bottom:.8rem}
+.THIS .config-table-details.slds-box{margin-bottom:1rem;padding:0.5rem 1rem 1rem}   
+.THIS .config-table-details .slds-table td{padding: .45rem 0;}
+.THIS .adapetr-config-main{background:#fff; border-radius:.25rem}
+.THIS .config-table-details .common-heading{padding-bottom:0.5rem}
+.THIS .config-url-info{padding-top:0.8rem; align-items: center;}
+.THIS .config-account-mapping .config-url-info{align-items:center}
+.THIS .config-account-mapping .THIS .slds-select,.THIS .config-url-info .THIS .slds-input{width:50%}
+.THIS .config-cmn-text{padding-left:2rem}
+.THIS .config-table-details .radio-btn-group{padding-top:0.2rem}
+.THIS .config-table-details .radio-btn-group .input-col{padding-bottom:0.2rem}
+.THIS .config-table-details .radio-btn-group .input-col + .input-col{padding-bottom:0}
+.THIS .config-table-details .slds-table tr .radio-btn-group label{font-weight:400;padding-left:23px}
+.THIS .config-table-details .radio-btn-group input[type="radio"]{margin: 0; vertical-align:middle}
+.THIS .config-table-details .radio-btn-group .uiInput--radio{position:relative}
+.THIS .config-table-details .radio-btn-group .uiInput--radio input[type=radio] {position: absolute;left:0;top:3px}
+.THIS .classForPermissionSetStep, .THIS .classForPermissionSetStep div, .THIS .classForPermissionSetStep + td{
+        float:left
+        }
+.THIS .classForPermissionSetStep{
+        min-width:250px;}
+.THIS .classForPermissionSetStep div{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0%, 50%);
+        }
+.THIS .classForPermissionSetStepCheckBox {position:relative;}
+.THIS .classForPermissionSetStepCheckBox div{
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translate(0, -30%);}
+        

@@ -1,0 +1,73 @@
+<apex:page>
+    <html>
+    <head>
+        <style>
+            .main{
+                padding: 25px;
+                /* border-color: #13dad3; */
+                background-color: rgba(91, 110, 99, 0.484);
+                height: 250px;
+                width: 450px;
+                margin-left: 35%;
+                margin-top: 15%;
+                border-top: 1px solid #13dad3;
+            } 
+            a{ 
+                margin-top: 15%;
+                color: #111515;
+            }
+            #a1{
+                margin-left: 10%;
+            }
+            #a2{
+                margin-left: 40%;
+            }
+            label{
+                margin-left: 40px;
+                color: #13dad3;
+                font-size: 15px;
+                font-weight: bold;
+                font-family: cursive;
+            }
+            a{
+                margin-left: 49%;
+                font-size: 20px;   
+            }
+            input[type=text],input[type=password]{
+                width: 80%;
+                margin: 15px 0;
+                padding: 12px 30px;
+                margin-left: 40px;
+                /* display: inline-block; */
+                box-sizing: border-box;
+            }
+        </style>
+    </head>
+    <body style="background-color : black">
+        <form class="form">
+            <div class="main">
+                <label for="username">Username :</label>
+                <input type="text" placeholder="Enter Username" />
+                <label for="password">Password :</label>
+                <input type="password" placeholder="Enter Password" />
+                <button style="margin : 10px 0px; margin-left: 145px; padding: 15px; width: 30%; font-size: 15px; color:#070707; font-style: bold;">Login</button>
+            </div>
+        </form>
+    </body>
+</html>
+</apex:page>
+
+<!-- <apex:page>
+    <form>
+        <h2 style="font-size:25px; color:cornflowerblue; margin:550px;">Login Page</h2>
+        <div style="color:crimson; background-color:burlywood">
+            <label style="font-size:20px; ">Username : </label> <br/>
+            <input type="text" placeholder="Enter Username" name="username" /> <br/>  
+            <label style="font-size:20px; ">Password : </label> <br/>  
+            <input type="password" placeholder="Enter Password" name="password" />  <br/> 
+            <button type="submit">Login</button>   
+                
+            Forgot <a href="#"> password? </a>
+        </div>
+    </form>
+</apex:page> -->

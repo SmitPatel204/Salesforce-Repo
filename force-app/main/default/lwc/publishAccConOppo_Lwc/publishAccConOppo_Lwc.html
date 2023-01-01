@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Account List" icon-name="standard:account">
+        <!-- <p class="slds-p-horizontal_small"> -->
+        <select class="slds-select" id="select-01" onchange={handleChange}>    
+            <template for:each={accountList} for:item="account">
+                <!-- <div key={account.Id}>
+                   <a href="#" data-value={account.Id} onclick={handleClick}>{account.Name}</a> 
+                </div> -->
+                <option key={account.Id} value={account.Id} >{account.Name}</option>
+            </template>
+        </select>    
+        <!-- </p> -->
+    </lightning-card>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <!-- <lightning-combobox
+                        name="progress"
+                        label="Status"
+                        data-value={account.Id}
+                        value={account.Name}
+                        placeholder="Select Progress"
+                        options={options}
+                        onchange={handleClick} for:each={accountList} for:item="account">
+                    </lightning-combobox> -->

@@ -1,0 +1,9 @@
+<apex:page controller="futureMethodAddImgToOppo">
+    <apex:form>
+    <!-- <apex:commandButton  value="Save"/> -->
+    <!-- <apex:image value="data:image/gif;base64,{!image}" />
+     -->
+    <apex:image value="data:image/gif;base64,{!image}"/> 
+    </apex:form>
+</apex:page>
+<!-- controller="futureMethodAddImgToOppo" -->

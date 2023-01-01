@@ -1,0 +1,110 @@
+<template>
+    <lightning-card title="Contact List" icon-name="standard:contact">
+        <!-- <template if-true={recordNotNull}>  -->
+            <!-- <lightning-datatable
+                key-field="id"
+                data={contacts}
+                columns={contactColumns}>
+            </lightning-datatable> -->
+        <!-- </template> -->
+        <div class="slds-table--header-fixed_container" style="height:180px;">
+        <div class="slds-scrollable_y" style="height:100%;">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+              <!-- <tr class="slds-text-title_caps"> -->
+            <tr class="slds-line-height_reset">    
+                <th class="" scope="col">
+                  <div class="slds-truncate" title="First Name">First Name</div>
+                </th>
+                <th class="" scope="col">
+                  <div class="slds-truncate" title="Last Name">Last Name</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="Phone">Phone</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+                <template if:true={contacts.data}>
+                    <template for:each={contacts.data} for:item="contact">
+                    <tr key={contact.id}>
+                        <td data-label="First Name">
+                            <div class="slds-truncate" title="First Name">{contact.FirstName}</div>
+                        </td>
+                        <td data-label="Last Name">
+                            <div class="slds-truncate" title="First Name">{contact.LastName}</div>
+                        </td>
+                        <td data-label="Phone">
+                            <div class="slds-truncate" title="First Name">{contact.Phone}</div>
+                        </td>
+                    </tr>
+                    </template>
+                </template>
+            </tbody>
+        </table>
+        </div>
+        </div>
+        <!-- <table class="slds-table slds-table_bordered slds-border_left slds-border_right">
+            <div class="slds-scrollable_y" style="height:10rem;width:24rem">
+                <template if:true={contacts.data}>
+                    <template for:each={contacts.data} for:item="contact">
+                        <div class="slds-text-longform" key={contact.Id}>
+
+                            <p><b>First Name : </b>{contact.FirstName}</p>
+                            <p><b>Last Name : </b>{contact.LastName}</p><br>
+                        </div>
+                    </template>
+                </template>
+            </div>
+        </table> -->
+    </lightning-card> 
+    <lightning-card title="Opportunity List" icon-name="standard:opportunity">
+        <!-- <div class="slds-scrollable_y" style="height:10rem;width:24rem">
+            <template if:true={oppos.data}>
+              <template for:each={oppos.data} for:item="oppo">
+                <div class="slds-text-longform" key={oppo.Id}>
+                    <p><b>Oppo Name : </b>{oppo.Name}</p>
+                    <p><b>Stage : </b>{oppo.StageName}</p><br>
+                </div>
+              </template>
+            </template>
+        </div> -->
+        <div class="slds-table--header-fixed_container" style="height:180px;">
+            <div class="slds-scrollable_y" style="height:100%;">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead>
+                  <!-- <tr class="slds-text-title_caps"> -->
+                <tr class="slds-line-height_reset">    
+                    <th class="" scope="col">
+                      <div class="slds-truncate" title="Opportunity Name">Opportunity</div>
+                    </th>
+                    <th class="" scope="col">
+                      <div class="slds-truncate" title="Stage">Stage</div>
+                    </th>
+                    <!-- <th class="" scope="col">
+                        <div class="slds-truncate" title="Phone">Colse</div>
+                    </th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                    <template if:true={oppos.data}>
+                        <template for:each={oppos.data} for:item="oppo">
+                        <tr key={oppo.id}>
+                            <td data-label="First Name">
+                                <div class="slds-truncate" title="Opportunity Name">{oppo.Name}</div>
+                            </td>
+                            <td data-label="Last Name">
+                                <div class="slds-truncate" title="Stage">{oppo.StageName}</div>
+                            </td>
+                            <!-- <td data-label="Phone">
+                                <div class="slds-truncate" title="First Name">{contact.Phone}</div>
+                            </td> -->
+                        </tr>
+                        </template>
+                    </template>
+                </tbody>
+            </table>
+            </div>
+            </div>
+    </lightning-card>   
+</template>

@@ -1,0 +1,36 @@
+<apex:page controller="DisplayVFPage">
+    <html>
+        <head>
+            <style>
+                .topnav {
+                background-color: rgb(59, 55, 55);
+                overflow: hidden;
+                }
+                .topnav a {
+                float: left;
+                color: #f2f2f2;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+                font-size: 17px;
+                }
+                .topnav a:hover {
+                background-color: #ddd;
+                color: black;
+                }
+                .topnav a.active {
+                background-color: #2d78f1;
+                color: white;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="topnav">
+                <a class="active" href="">Task1</a>
+                <a href="">Task2</a>
+                <a href="">Task3</a>
+                <a href="">Task4</a>
+            </div>              
+        </body>
+    </html>
+</apex:page>

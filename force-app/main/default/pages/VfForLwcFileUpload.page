@@ -1,0 +1,12 @@
+<apex:page showHeader="false" standardController="Account">
+    <apex:includeLightning/>
+    <div id="lwccontainer"></div>
+    <script>
+        $Lightning.use("c:AppForVfAuraLwc", function(){
+            $Lightning.createComponent("c:newListFilePreview",{},"lwccontainer",
+            function(cmp){
+                console.log('Call lwc from vfpage');
+            });
+        });
+    </script>
+</apex:page>

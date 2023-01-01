@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="filessssss">
+    <lightning-file-upload
+    onuploadfinished={connectedCallback}
+      name="fileUploader">
+    </lightning-file-upload>
+    <template if:true={records}>
+        <lightning-datatable
+                key-field="id"
+                data={files}
+                onclick={handleFilesChange}
+                columns={columns}>
+        </lightning-datatable>
+   </template>
+   
+        <div class="slds-align_absolute-center" style="height:5rem">
+            <lightning-button disabled={bDisableFirst} icon-name="utility:jump_to_left" label="First" class="slds-p-horizontal_x-small" alternative-text="first page" onclick={firstPage}></lightning-button>
+            <lightning-button disabled={bDisableFirst} icon-name="utility:chevronleft" label="Previous" alternative-text="Previous" onclick={previousPage}></lightning-button>
+            &nbsp;
+            <span class="slds-badge">Showing {pageNumber} &nbsp;of&nbsp; {totalPages} &nbsp;&nbsp;Page(s)</span>
+            &nbsp;
+            <lightning-button disabled={bDisableLast} icon-name="utility:chevronright" label="Next" alternative-text="Next" onclick={nextPage} class="slds-p-horizontal_x-small" icon-position="right"></lightning-button>
+            <lightning-button disabled={bDisableLast} icon-name="utility:jump_to_right" label="Last" alternative-text="last page" onclick={lastPage} icon-position="right"></lightning-button>
+        </div>
+
+
+        <div class="slds-clearfix">
+            <div class="slds-float_right">
+                <span class="slds-badge"> Total Records: {totalRecords}</span>
+            </div>
+        </div>
+
+    </lightning-card>
+</template>

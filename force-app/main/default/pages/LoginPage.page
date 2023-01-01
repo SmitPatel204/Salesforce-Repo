@@ -1,0 +1,18 @@
+<apex:page controller="Login">
+    <apex:form>
+        <apex:pageBlock>
+            <apex:pageBlockSection columns="1">
+                <apex:inputText label="Email" value="{!con.Email}" required="true"/>
+                <apex:inputText label="Password" value="{!con.Password__c}" required="true"/>
+                <apex:pageMessages id="pg1"/>
+                <!-- <apex:inputText label="Email" value="{!email}" required="true"/>
+                <apex:inputText label="Password" value="{!password}" required="true"/> -->
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons location="bottom">
+                <apex:commandButton value="Save" action="{!login}" reRender="pg1"/>
+                <!-- <apex:pageMessages id="pg1"/> -->
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
+

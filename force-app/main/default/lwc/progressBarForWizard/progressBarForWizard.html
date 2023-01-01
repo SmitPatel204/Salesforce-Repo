@@ -1,0 +1,11 @@
+<template>
+    <div class="slds-p-around_small">
+        <template if:true={isIndicator}>
+            <lightning-progress-bar current-step={currentStep} type="base" variant="base">
+                <template for:each={steps} for:item="step">
+                    <lightning-progress-step label={step.label} value={step.value} key={step.value}></lightning-progress-step>
+                </template>
+            </lightning-progress-bar>
+        </template>
+    </div>
+</template>

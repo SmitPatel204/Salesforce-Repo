@@ -1,0 +1,34 @@
+<template>
+    <lightning-layout multiple-rows="true">
+        <lightning-layout-item padding="around-small" size="12">
+            <lightning-layout>
+                <lightning-layout-item size="8">
+                    <b>Name</b>
+                </lightning-layout-item>
+                <lightning-layout-item size="3">
+                    <b>File Type</b>
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-layout-item>
+        <template for:each={files} for:item="file">
+            <lightning-layout-item size="12" key={file.Id}>
+                <lightning-layout>
+                    <lightning-layout-item size="8">
+                        <lightning-button variant="base" data-id={file.Id}
+                            label={file.Title} value={file.Title} onclick={filePreview}>
+                        </lightning-button>
+                    </lightning-layout-item>
+                    <lightning-layout-item size="3">
+                        {file.Type}
+                    </lightning-layout-item>
+                </lightning-layout>
+                <!-- <p class="slds-m-around_medium">{startingRecord} to {endingRecord} of {totalRecordCount} page {page} of {totalpage}</p>
+                <c-pagination onprevious={prevHandler} onnext={nextHandler}></c-pagination> -->
+            </lightning-layout-item>
+        </template>
+        <lightning-layout-item>
+            <!-- <p class="slds-m-around_medium">{startingRecord} to {endingRecord} of {totalRecordCount} page {page} of {totalpage}</p> -->
+            <c-pagination onprevious={prevHandler} onnext={nextHandler}></c-pagination>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>

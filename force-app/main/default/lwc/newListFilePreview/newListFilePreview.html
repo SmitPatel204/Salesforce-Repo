@@ -1,0 +1,85 @@
+<template>
+    <lightning-card title="Upload-Preview Files" icon-name="custom:custom14">
+        <lightning-file-upload label={label} name="fileUploader" accept={acceptedFormats} record-id={recordId}
+            onuploadfinished={handleActionFinished} multiple>
+        </lightning-file-upload>
+
+      <template if:true={visiblefile}>
+         <template for:each={visiblefile} for:item="file">
+             <div key={file.value} class="slds-box">
+                 <div class="slds-grid slds-wrap">
+                     <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                       <p><strong>FileName - </strong>{file.label}</p>
+                     </div>
+                     <div class="slds-col slds-large-size_4-of-12 slds-medium-size_4-of-12 slds-size_12-of-12">
+                       <lightning-button label="Preview" 
+                       variant="brand"
+                      data-id={file.value}
+                      onclick={filePreview}
+                       ></lightning-button>
+                     </div>
+                   </div>
+             </div>
+         </template>
+        </template>
+         <div slot="footer" class="slds-var-m-vertical_medium">
+          <c-pagination records={totalfile} onupdate={updateContactHandler}></c-pagination>
+      </div>
+    </lightning-card> 
+ </template>
+
+<!-- <template>
+    <lightning-card title="View/Upload Files">
+        <lightning-file-upload label={label} name="fileUploader" accept={acceptedFormats} record-id={recordId}
+            onuploadfinished={handleActionFinished} multiple>
+        </lightning-file-upload>
+
+        <template if:true={files.data}>
+            <lightning-layout multiple-rows="true">
+                <lightning-layout-item padding="around-small" size="12">
+                    <lightning-layout>
+                        <lightning-layout-item size="8">
+                            <b>Name</b>
+                        </lightning-layout-item>
+                        <lightning-layout-item size="3">
+                            <b>File Type</b>
+                        </lightning-layout-item>
+                    </lightning-layout>
+                </lightning-layout-item>
+                <template for:each={files.data} for:item="file">
+                    <lightning-layout-item size="12" key={file.Id}>
+                        <lightning-layout>
+                            <lightning-layout-item size="8">
+                                <lightning-button variant="base" data-id={file.Id}
+                                    label={file.Title} value={file.Title} onclick={filePreview}>
+                                </lightning-button>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="3">
+                                {file.Type}
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </template>
+        <lightning-layout-item>
+           
+            
+        </lightning-layout-item>
+    </lightning-card>
+</template> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- child pagination  -->

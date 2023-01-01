@@ -1,0 +1,29 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+
+    <aura:attribute name="image_URl" type="String"/>
+    <aura:attribute name="Background_Color" type="String" default="Black"/>
+
+    <aura:attribute name="Description" type="String"/>
+    <aura:attribute name="Font_size" type="String" default="20px"/>
+
+    <aura:attribute name="Font_Color" type="String" default="black"/>
+
+
+    <div class="slds-box s1" style = "{!'background:' + v.Background_Color}">
+    
+        <lightning:layout>
+            <lightning:layoutItem>
+                <img src="{!v.image_URl}"/>  
+            </lightning:layoutItem>  
+        </lightning:layout>
+
+
+        <lightning:layout>
+            <lightning:layoutItem>
+                <p class="slds-p-around_large  a1"  style = "{!'font-size:' + v.Font_size + ';color:' + v.Font_Color + ';'}">{!v.Description}</p>
+            </lightning:layoutItem>
+        </lightning:layout>
+
+    </div>
+
+</aura:component>	

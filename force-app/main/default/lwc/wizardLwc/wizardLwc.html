@@ -1,0 +1,61 @@
+<template>
+    <lightning-card>
+        <lightning-progress-indicator current-step={currentStep} type="base" variant="base">
+            <lightning-progress-step label="Step 1" value="1" onclick={handleOnStepClick}></lightning-progress-step>
+            <lightning-progress-step label="Step 2" value="2" onclick={handleOnStepClick}></lightning-progress-step>
+            <lightning-progress-step label="Step 3" value="3" onclick={handleOnStepClick}></lightning-progress-step>
+        </lightning-progress-indicator>
+        <!-- step - 1 -->
+        <template if:true={isStepOne}>
+            <div>
+                <lightning-combobox name="progress" value={value} placeholder="Select Object"
+                    options={options} onchange={handleChange}>
+                </lightning-combobox>
+
+                <template if:true={recordsToDisplay1}>
+                    <lightning-datatable  key-field="id" data={recordsToDisplay1} columns={columns}> </lightning-datatable>
+               </template>
+            </div>
+        </template>
+        <!-- step - 2 -->
+        <template if:true={isStepTwo}>
+            <div class="">
+                <lightning-input label="subject" type="text" value={subject} onchange={handleSubjectChange} required="true"></lightning-input>
+                <br>
+                
+                <lightning-input-rich-text label-visible="Text Body" value={body} onchange={handleBodyChange} required="true" ></lightning-input-rich-text>            </div>
+        </template>
+        <!-- step - 3 -->
+        <template if:true={isStepThree}>
+            <div>
+                <div class="slds-box">
+                FROM : smit11685@gmail.com
+            </div>
+                <br>
+                <div class="slds-box">
+                To : {selectValue}
+                </div>
+                <br>
+                <div class="slds-box">
+                SUBJECT : {subject}
+                </div>
+                <br>
+                <div class="slds-box">
+                MESSAGE:    
+                <lightning-formatted-rich-text value={myVal}></lightning-formatted-rich-text>
+                </div>
+            </div>
+        </template>
+        <br>
+        <template if:true={isEnablePrev}>
+            <lightning-button variant="brand" label="Back" onclick={handlePrev}></lightning-button>
+        </template>
+        &nbsp;  &nbsp;  &nbsp;  &nbsp; 
+        <template if:true={isEnableNext}>
+            <lightning-button label="Next" variant="brand"  onclick={handleNext}></lightning-button>
+        </template>
+        <template if:true={isEnableFinish}>
+            <lightning-button label="Finish" variant="brand" onclick={handleFinish}></lightning-button>
+        </template>
+    </lightning-card>
+</template>

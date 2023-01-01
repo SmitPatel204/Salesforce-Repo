@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Upload-View Files" icon-name="custom:custom14">
+        <lightning-file-upload label={label} name="fileUploader" accept={acceptedFormats} record-id={recordId}
+            onuploadfinished={handleActionFinished} multiple>
+        </lightning-file-upload>
+        
+        <template if:true={files.data}>
+            <c-files-list files={files.data}></c-files-list>   <!-- onfiledelete={handleActionFinished} -->
+        </template>
+           
+    </lightning-card>
+</template>

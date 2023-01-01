@@ -1,0 +1,13 @@
+<apex:page controller="">
+    <apex:form>
+        <apex:pageBlock>
+            <div>
+            <apex:commandLink value="Task1" action="{!task1}" /><br/>
+            <apex:commandLink value="Task2" action="{!task2}" /><br/>
+            <apex:commandLink value="Task3" action="{!task3}" /><br/>
+            <apex:commandLink value="Task4" action="{!task4}" /><br/>
+            <apex:commandLink value="Task5" action="{!task5}" /><br/>
+            </div>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

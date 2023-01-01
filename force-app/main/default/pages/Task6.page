@@ -1,0 +1,8 @@
+<apex:page controller="PageNotFoundClass">
+    <apex:pageMessages id="message"></apex:pageMessages>
+    <apex:form >
+        <apex:outputPanel >
+            <apex:commandButton action="{!displayError}" value="show error" rerender="message"/>
+        </apex:outputPanel>
+    </apex:form>
+</apex:page>

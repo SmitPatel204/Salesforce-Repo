@@ -1,0 +1,210 @@
+<!-- map tag -->
+
+<!-- <apex:page standardController="Account">
+  
+  <apex:pageBlock >
+    <apex:pageBlockSection title="Contacts For {! Account.Name }">
+    
+     <apex:dataList value="{! Account.Contacts }" var="contact">
+       <apex:outputText value="{! contact.Name }" />
+     </apex:dataList> 
+    
+    </apex:pageBlockSection>
+  </apex:pageBlock>
+   
+  <apex:map width="600px" height="400px" mapType="roadmap" center="{!Account.BillingStreet},{!Account.BillingCity},{!Account.BillingState}">
+
+    <apex:repeat value="{! Account.Contacts }" var="contact">
+    <apex:mapMarker title="{! contact.Name }" position="{!contact.MailingStreet},{!contact.MailingCity},{!contact.MailingState}"/>
+    </apex:repeat>
+
+  </apex:map>
+
+</apex:page> -->
+
+<!-- list of account  -->
+
+<!-- <apex:page standardController="Account" recordSetvar="accounts">
+  <apex:pageBlock title="Viewing Accounts">
+  <apex:form id="theForm">
+    <apex:panelGrid columns="2">
+      <apex:outputLabel value="View:"/>
+      <apex:selectList value="{!filterId}" size="1">
+        <apex:actionSupport event="onchange" rerender="list"/>
+        <apex:selectOptions value="{!listviewoptions}"/>
+      </apex:selectList>
+    </apex:panelGrid>
+    <apex:pageBlockSection >
+      <apex:dataTable var="a" value="{!accounts}" id="list">
+        <apex:column value = "{!a.name}"/>
+        <apex:column value = "{!a.Phone}"/>
+        <apex:dataTable value="{!account.Contacts}" var="c">
+            <apex:column value = "{!c.LastName}"/>
+            <apex:column value = "{!c.Phone}"/>
+        </apex:dataTable>
+      </apex:dataTable>
+    </apex:pageBlockSection>
+  </apex:form> 
+  </apex:pageBlock>
+</apex:page> -->
+
+<!-- <apex:page standardController="Account" recordSetVar="Account">
+ <apex:form >
+  <apex:pageBlock title="All Accounts">
+   <apex:pageBlockTable value="{!Account}" var="a">
+        <apex:column value="{!a.Name}"/>
+        <apex:column value="{!a.AccountNumber}"/>
+   </apex:pageBlockTable>
+ </apex:form>
+</apex:page> -->
+
+<!-- <apex:page standardController="Account" recordSetVar="Acct">
+    <apex:pageBlock>
+        <table>
+            <apex:repeat value="{!Acct}" var="acc">
+                <tr>
+                    <td><apex:outputText value="{!acc.Name}"/></td>
+                    <apex:repeat value="{!acc.Contacts}" var="cont">
+                        <td><apex:outputText value="{!cont.Name}"/></td>
+                    </apex:repeat>
+                </tr>
+            </apex:repeat>
+        </table>
+    </apex:pageBlock>
+</apex:page> -->
+
+
+<!-- standardController for contact  -->
+
+<apex:page standardController="Account" recordSetVar="accounts">
+    <apex:pageBlock title="Accounts List">
+        <apex:form>
+        <apex:repeat value="{!accounts}" var="acc"/>
+            <!-- <apex:outputText value="{!a.Name}"/>  -->
+            <apex:pageBlockSection title="{!acc.Name}">
+                    <apex:repeat value="{!acc.Contacts}" var="c">
+                        <apex:pageBlockSectionItem>
+                            <apex:outputLabel value="{!c.Name}"/>
+                            <apex:outputLabel value="{!c.Phone}"/>
+                        </apex:pageBlockSectionItem>
+                    </apex:repeat>    
+                    <apex:pageBlockTable value="{!acc.contacts}" var="c">
+                        <apex:column value="{!c.Phone}"></apex:column>
+                    </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:form>     
+    </apex:pageBlock>
+</apex:page>
+
+<!-- standardController for contact  -->
+
+<!-- <apex:page standardController="Contact" recordSetVar="contacts">
+    <apex:pageBlock title="Contacts List">
+        
+        <apex:pageBlockTable value="{! account.Contacts }" var="ct">
+            <apex:column value="{! ct.FirstName }"/>
+            <apex:column value="{! ct.LastName }"/>
+            <apex:column value="{! ct.Email }"/>
+            <apex:column value="{! ct.Account.Name }"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page> -->
+
+
+
+
+<!-- <apex:page standardController="Account" recordSetVar="accounts">
+    <apex:pageBlock >
+        <apex:pageBlockSection >
+            <apex:repeat value="{!accounts}" var="a">
+                <li>
+                    <apex:outputLink value="/{!a.ID}">
+                        <apex:outputText value="{!a.name}"/>
+                    </apex:outputLink>
+                </li>
+            </apex:repeat>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+
+ <apex:page standardController="Account" recordSetVar="accounts">
+    <apex:pageBlock title="Account List">
+        Accounts List
+        <apex:repeat value="{!Account}" var="a" rendered="true">
+            
+            <apex:pageBlock title="Contacts">
+                <apex:pageBlockTable value="{!Account.contacts}" var="contact">
+                   <apex:column value="{!contact.Name}"/>
+                   <apex:column value="{!contact.Title}"/>
+                   <apex:column value="{!contact.Phone}"/>
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+           
+            <li>
+                <apex:outputLink value="{!a.ID}" id="recordID">
+                    <apex:outputText value="{!a.Name }" />
+                </apex:outputLink>
+            </li>
+        </apex:repeat>
+    </apex:pageBlock>
+</apex:page>  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <apex:page standardController="Account" recordSetVar="accounts">
+    <apex:pageBlock title="Account List">
+        
+        <apex:repeat value="{! accounts}" var="a" rendered="true" id="account_list">
+            
+            <apex:pageBlockSection title="{! a.Name }">
+                <apex:pageBlockTable value="{! a.contacts }" var="con">
+                    <apex:column value="{! con.Title }"/>
+                    <apex:column value="{! con.FirstName }"/>
+                    <apex:column value="{! con.LastName }"/>
+                    <apex:column value="{! con.Email }"/>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+           
+            <li>
+                <apex:outputLink value="/{! a.ID}" id="recordID">
+                    <apex:outputText value="{! a.Name }" />
+                </apex:outputLink>
+            </li>
+        </apex:repeat>
+    </apex:pageBlock>
+</apex:page> -->

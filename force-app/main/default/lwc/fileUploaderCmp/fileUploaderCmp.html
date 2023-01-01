@@ -1,0 +1,23 @@
+<template>
+    <lightning-card title="File Upload" icon-name="custom:custom14">
+        <!-- get info about file  -->
+        <div class="slds-var-m-around_medium">
+            <lightning-input type="file" lable="Attachment" onchange={openfileupload}></lightning-input>
+        </div>
+        <!-- show file name  -->
+        <template if:true={fileData}>
+            <p>{fileData.filename}</p>
+        </template>
+        <!-- button fr submitting img  -->
+        <lightning-button variant="brand" label="submit" title="Submit" onclick={handleClick} class="slds-var-m-left_x-small">
+
+        </lightning-button>
+        <lightning-card title="Preview of Uploaded Image" icon-name="utility:image">
+            <div class="slds-col">
+                <template if:true={fileData}>
+                    <c-file-preview-cmp files={fileData}></c-file-preview-cmp>
+                </template>
+            </div>
+        </lightning-card>
+    </lightning-card>
+</template>

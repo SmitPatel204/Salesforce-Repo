@@ -1,0 +1,7 @@
+<apex:page>
+    <apex:include pageName="Taks1"/>
+    <apex:include pageName="Task2"/> 
+    <apex:include pageName="SecondContactList"/>
+    <apex:include pageName="SecondAccountlist"/>
+    <apex:include pageName="Task5"/> 
+</apex:page>

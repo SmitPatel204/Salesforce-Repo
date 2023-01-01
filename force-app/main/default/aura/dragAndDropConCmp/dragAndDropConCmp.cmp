@@ -1,0 +1,88 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="dragAndDropCon" access="global">
+    <aura:attribute name="accounts" type="List" />
+    <aura:attribute name="accounts1" type="List" />
+    <aura:attribute name="accId" type="Id" />
+    <!-- <aura:attribute name="con1Name" type="integer"/>
+    <aura:attribute name="con2Name" type="integer"/> -->
+    <!-- <aura:attribute name="searchKey" type="String" />  -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" /> 
+
+    <lightning:card>
+        <lightning:layout>
+            <lightning:layoutItem size="6" padding="around-small">
+                <div class="slds-box" ondragover="{!c.allowDrop}" id="{v.accId}" ondrop="{!c.onDropFirstBox}">
+                    <div class="slds-box">
+                    <h1 style="font-size:30px; text-align:center;">Accounts</h1>
+                    </div>
+                    <lightning:input type="search" name="searchKey" aura:id="searchKey" onchange="{!c.searchKeyChange}" placeholder="Search Account"/>
+                    
+                    <aura:iteration items="{!v.accounts}" var="acc">
+                        <!-- Number Of Contact : {!v.con1Name} -->
+                        <div class="slds-box">
+                            <lightning:icon iconName="standard:account" alternativeText="Account" title="Account"/>
+                            <b style="margin-left: 6px; font-size: 15px">{!acc.Name}</b>
+                            <aura:iteration items="{!acc.Contacts}" var="con">
+                                <div class="slds-box" style="margin-top: 4px;" id="{!con.Id}" ondragstart="{!c.dragStart}" draggable="true">
+                                    <lightning:icon iconName="standard:contact" alternativeText="contact" title="Contact"/>
+                                    <b style="margin-left: 3px;">First Name : {!con.FirstName}</b><br/>
+                                    <!-- <b style="margin-left: 3px;">Last Name : {!con.LastName}</b> -->
+                                </div>
+                            </aura:iteration>
+                        </div>
+                    </aura:iteration>
+                </div>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                <div class="slds-box" ondragover="{!c.allowDrop}" ondrop="{!c.onDropSecBox}">
+                    <div class="slds-box">
+                        <h1 style="font-size:30px; text-align:center">Accounts</h1>
+                    </div>    
+                    <lightning:input type="search" name="searchKey1" aura:id="searchKey1" onchange="{!c.searchKeyChange1}" placeholder="Search Account" />
+                    <aura:iteration items="{!v.accounts1}" var="acc1">
+                        <!-- Number Of Contact : {!v.con2Name} -->
+                        <div class="slds-box" >
+                            <lightning:icon iconName="standard:account" alternativeText="Account" title="Account"/>
+                            <b style="margin-left: 6px; font-size: 15px">{!acc1.Name}</b>
+                            <aura:iteration items="{!acc1.Contacts}" var="con1">
+                                <div class="slds-box" style="margin-top: 4px;" id="{!con1.Id}" ondragstart="{!c.dragStart}" draggable="true">
+                                    <lightning:icon iconName="standard:contact" alternativeText="contact" title="Contact"/>
+                                    <b style="margin-left: 3px;">First Name : {!con1.FirstName}</b><br/>
+                                    <!-- <b style="margin-left: 3px;">Last Name : {!con.LastName}</b> -->
+                                </div>
+                            </aura:iteration>
+                        </div>
+                    </aura:iteration>
+                </div>
+            </lightning:layoutItem>
+        </lightning:layout>
+    </lightning:card>
+</aura:component>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="slds-box">
+    <h2>{!acc1.Name}</h2>
+    <aura:iteration items="{!acc1.Contacts}" var="con1">
+        <div class="slds-box">
+            <p>First Name : {!con1.FirstName}</p>
+            <p>Last Name : {!con1.LastName}</p>
+        </div>
+    </aura:iteration>
+</div> -->

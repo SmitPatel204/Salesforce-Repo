@@ -1,0 +1,10 @@
+<template>
+    <div style="width: auto;">
+        <template if:false={files.data}>
+            <i class="slds-text-color_error">No image uploaded!</i>
+        </template>
+        <template if:true={files.data}>
+            <img src={files.data} width="150">
+        </template>
+    </div>    
+</template>

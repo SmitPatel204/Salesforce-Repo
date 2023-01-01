@@ -1,0 +1,127 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes" controller="displayAccAndCon" access="global">
+    <aura:attribute name="accnList" type="List" />           <!--This attribute fetch account -->
+    <!-- <aura:attribute name="key" type="String" />                This attribute for search account  -->
+    <aura:attribute name="paginationList" type="List"/>
+    <aura:attribute name="pageSize" type="Integer" default="5"/>
+    <aura:attribute name="totalSize" type="Integer"/>
+    <aura:attribute name="start" type="Integer" />
+    <aura:attribute name="end" type="Integer"/>
+    <aura:attribute name="spinner" type="Boolean" default="false"/>
+
+    <aura:if isTrue="{!v.spinner}">
+        <div aura:id="spinnerId" class="slds-spinner_container">
+            <div class="slds-spinner--brand slds-spinner--large slds-is--relative" role="alert">
+                <span class="slds-assistive-text">Loading</span>
+                <div class="slds-spinner_a"></div>
+                <div class="slds-spinner_b"></div>
+                <!-- <p style="transform: translate(-32%, -50%) rotate(-90deg); width: 500px; text-align-center></p> -->
+            </div>
+        </div>
+    </aura:if>
+
+    <!-- <aura:attribute name="PageNumber" type="integer" default="1"/>
+    <aura:attribute name="TotalPages" type="integer" default="0"/>
+    <aura:attribute name="TotalRecords" type="integer" default="0"/>
+    <aura:attribute name="RecordStart" type="integer" default="0"/>
+    <aura:attribute name="RecordEnd" type="integer" default="0"/> -->
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />        
+
+    <lightning:input type="search" name="searchKey" aura:id="searchKey" onchange="{!c.searchKeyChange}" isLoading="{! v.issearching }" placeholder="Search Account" />
+    <!-- <ui:inputText aura:id="searchKey" change="{!c.searchKeyChange}" required="true"></ui:inputText>  -->
+    <h1 style="Margin-top: 1rem; Margin-left: 1rem; font-size: 20px" ><b>Account List : </b></h1>
+
+    
+    <div class="slds-accordion"> <!--Change in class-->    
+        <!-- new accordion -->
+        <div class="slds-m-around_xx-large">
+            <lightning:accordion allowMultipleSectionsOpen="true">  <!--allowMultipleSectionsOpen="true" for accordion-->
+                <aura:iteration items="{!v.paginationList}" var="acc"> 
+                    <lightning:accordionSection  name="{!acc.Name}" label="{!acc.Name}">
+                        <h1 style="Margin-top: 1rem; Margin-left: 1rem; font-size: 18px" ><b>Contact List : </b></h1>
+                            <aura:iteration items="{!acc.Contacts}" var="con">
+                                <lightning:accordionSection name="{!con.Name}" label="{!con.Name}">
+                                    <aura:set attribute="body">
+                                        <p><b>First Name : </b>{!con.FirstName}</p>
+                                        <p><b>Last Name : </b>{!con.LastName}</p>
+                                    </aura:set>
+                                </lightning:accordionSection>
+                            </aura:iteration>
+                    </lightning:accordionSection>
+                </aura:iteration>
+            </lightning:accordion>
+            <!-- <lightning:button label="Previous" disabled="{!v.start == 0}"  onclick="{!c.previous}" />
+            <lightning:button label="Next" disabled="{!v.end >= v.totalSize}" onclick="{!c.next}" /> -->
+        </div>   
+    </div>
+    
+    <div>
+    <!-- <lightning:button label="First" disabled="{!v.start == 0}"  onclick="{!c.first}" /> -->
+    <lightning:button label="Previous" disabled="{!v.start == 0}"  onclick="{!c.previous}"  variant="brand"/>
+    <lightning:button label="Next" disabled="{!v.end + 1 >= v.totalSize}" onclick="{!c.next}" variant="brand"/>
+    <!-- <lightning:button label="Last" disabled="{!v.end >= v.totalSize}" onclick="{!c.last}" /> -->
+    </div>   
+</aura:component>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- div for select account count to display  -->
+    <!-- <div class="slds-float_right">
+        <ui:inputSelect aura:id="pageSize" label="Display Records Per Page: " change="{!c.onSelectChange}">
+            <ui:inputSelectOption text="5" label="5" value="true"/>
+            <ui:inputSelectOption text="10" label="10" />
+            <ui:inputSelectOption text="15" label="15"/>
+            <ui:inputSelectOption text="20" label="20"/>
+        </ui:inputSelect>
+        <br/>
+    </div> -->
+    <!-- <div>
+    <tr> <td style="width:5%">Show</td><td style="width:7%"><ui:inputSelect aura:id="records" change="{!c.onSelectChange}">
+        <ui:inputSelectOption text="5" value="5" /> 
+        <ui:inputSelectOption text="10" value="10"/>
+    </ui:inputSelect></td></tr>
+    </div>     -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- display page number  -->
+    <!-- <div class="slds-clearfix">
+        <div class="slds-page-header" role="banner">
+            <div class="slds-float_right">            
+                <lightning:button disabled="{!v.PageNumber == 1}" variant="brand" aura:id="prevPage" label="Prev" onclick="{!c.handlePrev}" />            
+                <lightning:button disabled="{!v.PageNumber == v.TotalPages}" aura:id="nextPage" variant="brand" label="Next" onclick="{!c.handleNext}"/>
+            </div>
+            <p class="slds-page-header__title">{!v.RecordStart}-{!v.RecordEnd} of {!v.TotalRecords} | Page {!v.PageNumber} of {!v.TotalPages}</p>
+        </div>
+    </div> -->
