@@ -28,8 +28,9 @@ export default class WizardLwc extends LightningElement {
 
     handleclick(){
         var el = this.template.querySelector('lightning-datatable').getSelectedRows();
-        console.log(el);
+        console.log(JSON.stringify(el));
         this.value1 = el;
+        // console.log(JSON.stringify(value1));
         const select = this.value;
         console.log('selected object :'+select);
        
@@ -48,7 +49,8 @@ export default class WizardLwc extends LightningElement {
         console.log(this.selectValue[0].name);
         for (let i = 0; i < this.selectValue.length; i++) {
             console.log('selval:'+this.selectvalue[i].name);
-            this.Name1[i] = this.selectvalue[i].name;
+            // this.Name1[i] = this.selectvalue[i].name;
+            this.Name1.push(this.selectValue[i].name);
         }
         console.log('Name :' + JSON.stringify(this.Name1));   
         for (let i = 0; i < this.selectValue.length; i++) {
@@ -176,7 +178,8 @@ export default class WizardLwc extends LightningElement {
     }
  
     handleNext(){
-        if(this.currentStep == "1" && this.value != '' ){
+        // if(this.currentStep == "1" && this.value != '' ){
+        if(this.currentStep == "1" || this.value != '' ){    
             this.handleclick();
             this.currentStep = "2";
         }
