@@ -23,7 +23,8 @@
                 <lightning-input label="subject" type="text" value={subject} onchange={handleSubjectChange} required="true"></lightning-input>
                 <br>
                 
-                <lightning-input-rich-text label-visible="Text Body" value={body} onchange={handleBodyChange} required="true" ></lightning-input-rich-text>            </div>
+                <lightning-input-rich-text label-visible="Text Body" value={body} onchange={handleBodyChange} required="true" ></lightning-input-rich-text>     
+            </div>
         </template>
         <!-- step - 3 -->
         <template if:true={isStepThree}>

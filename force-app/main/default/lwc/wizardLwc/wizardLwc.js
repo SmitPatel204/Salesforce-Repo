@@ -38,24 +38,24 @@ export default class WizardLwc extends LightningElement {
         for (let index = 0; index < JSON.stringify(this.value1.length); index++) {
             // this.selectValue.push(JSON.stringify(this.value1[index].Account_Email__c));
             // this.selectValue.push({key:index,email:this.value1[index].Email__c,name:this.value1[index].Name});
-            this.selectValue.push({email:this.value1[index].Email__c,name:this.value1[index].Name});
-            // this.selectValue.push(JSON.stringify(this.value1[index].Email__c));
+            // this.selectValue.push({email:this.value1[index].Email__c,name:this.value1[index].Name});
+            this.selectValue.push(JSON.stringify(this.value1[index].Email__c));
             // this.selectValue.push(JSON.stringify(this.value1[index].Name));
         }
         // console.log('Name :'+this.selectValue1);
-        console.log('recode1 :' + JSON.stringify(this.selectValue)); 
-        console.log(this.selectValue.length);
-        console.log(JSON.stringify(this.selectValue[0]));
-        console.log(this.selectValue[0].name);
+        // console.log('recode1 :' + JSON.stringify(this.selectValue)); 
+        // console.log(this.selectValue.length);
+        // console.log(JSON.stringify(this.selectValue[0]));
+        // console.log(this.selectValue[0].name);
+        // for (let i = 0; i < this.selectValue.length; i++) {
+        //     console.log('selval:'+this.selectvalue[i].name);
+        //     // this.Name1[i] = this.selectvalue[i].name;
+        //     this.Name1.push(this.selectValue[i].name);
+        // }
+        // console.log('Name :' + JSON.stringify(this.Name1));   
         for (let i = 0; i < this.selectValue.length; i++) {
-            console.log('selval:'+this.selectvalue[i].name);
-            // this.Name1[i] = this.selectvalue[i].name;
-            this.Name1.push(this.selectValue[i].name);
-        }
-        console.log('Name :' + JSON.stringify(this.Name1));   
-        for (let i = 0; i < this.selectValue.length; i++) {
-            // this.selectValue[i] = this.selectValue[i].replace(/"/g, "");
-            this.Email1[i] = this.selectValue[i].email.replace(/"/g, "");
+            this.selectValue[i] = this.selectValue[i].replace(/"/g, "");
+            // this.Email1[i] = this.selectValue[i].email.replace(/"/g, "");
         }
         // console.log('recode2 :' + this.selectValue);   
         console.log('Email :' + JSON.stringify(this.selectValue)); 
